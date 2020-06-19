@@ -1,0 +1,68 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.regissantana.spring.skeleton'
+version '1.0-SNAPSHOT'
+
+bootJar {
+    mainClassName = 'com.regissantana.spring.skeleton.SpringSkeletonApplication'
+}
+
+bootRun {
+    systemProperties = System.properties
+}
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+wrapper {
+    gradleVersion = '5.2'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springBootVersion = '2.1.7.RELEASE'
+    springFoxVersion = '2.9.2'
+}
+
+dependencies {
+    //'logging' just to resolve multiple slf4j error
+    compile ("org.springframework.boot:spring-boot-starter-logging:${springBootVersion}")
+    compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile ("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
+    compile ("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+    compile ("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+    compile ("com.h2database:h2")
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.1.2.RELEASE'
+    compile group: 'com.google.guava', name: 'guava', version: '27.1-jre'
+
+    compile("org.postgresql:postgresql:9.4-1200-jdbc41")
+
+    compile ("io.springfox:springfox-swagger2:${springFoxVersion}")
+    compile ("io.springfox:springfox-swagger-ui:${springFoxVersion}")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Greenwich.RELEASE"
+    }
+}
