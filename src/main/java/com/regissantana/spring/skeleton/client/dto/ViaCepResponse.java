@@ -1,12 +1,8 @@
-package com.regissantana.spring.skeleton.domain.dto;
+package com.regissantana.spring.skeleton.client.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
-import java.io.Serializable;
-
-public class ViaCepResponse implements Serializable {
+public class ViaCepResponse {
 
     @JsonProperty(value = "logradouro")
     private String street;
@@ -79,35 +75,4 @@ public class ViaCepResponse implements Serializable {
         this.zipCode = zipCode;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ViaCepResponse that = (ViaCepResponse) o;
-        return Objects.equal(street, that.street) &&
-                Objects.equal(complement, that.complement) &&
-                Objects.equal(neighborhood, that.neighborhood) &&
-                Objects.equal(city, that.city) &&
-                Objects.equal(state, that.state) &&
-                Objects.equal(censusId, that.censusId) &&
-                Objects.equal(zipCode, that.zipCode);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(street, complement, neighborhood, city, state, censusId, zipCode);
-    }
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("street", street)
-                .add("complement", complement)
-                .add("neighborhood", neighborhood)
-                .add("city", city)
-                .add("state", state)
-                .add("censusId", censusId)
-                .add("zipCode", zipCode)
-                .toString();
-    }
 }
