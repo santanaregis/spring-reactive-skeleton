@@ -9,6 +9,7 @@ sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven { url 'https://repo.spring.io/milestone' }
     maven { url 'https://repo.spring.io/snapshot' }
 }
@@ -18,16 +19,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.projectreactor:reactor-spring:1.0.1.RELEASE'
 
-    implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0-SNAPSHOT'
-    implementation group: 'io.springfox', name: 'springfox-spring-webflux', version: '3.0.0-SNAPSHOT'
-    implementation group: 'io.springfox', name: 'springfox-spring-integration-webflux', version: '3.0.0-SNAPSHOT'
-    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0-SNAPSHOT'
-
     implementation group: 'ma.glasnost.orika', name:'orika-core', version: '1.5.2'
     implementation group: 'org.apache.commons', name: 'commons-lang3'
 
+    //only for test usage
+    implementation group: 'de.flapdoodle.embed', name:'de.flapdoodle.embed.mongo'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
     testImplementation 'io.projectreactor:reactor-test'
 }
 

@@ -152,12 +152,12 @@ public class Address {
         }
 
         public Builder createDate(final ZonedDateTime createDate) {
-            this.censusId = censusId;
+            this.createDate = createDate;
             return this;
         }
 
-        public Builder updateDate(final ZonedDateTime createDate) {
-            this.censusId = censusId;
+        public Builder updateDate(final ZonedDateTime updateDate) {
+            this.updateDate = updateDate;
             return this;
         }
 

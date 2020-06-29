@@ -1,5 +1,7 @@
 package com.regissantana.spring.skeleton.api.dto;
 
+import java.time.ZonedDateTime;
+
 public class AddressDTO {
 
     private String id;
@@ -10,6 +12,8 @@ public class AddressDTO {
     private String state;
     private String censusId;
     private String zipCode;
+    private ZonedDateTime createDate;
+    private ZonedDateTime updateDate;
 
     public String getId() {
         return id;
@@ -75,4 +79,19 @@ public class AddressDTO {
         this.zipCode = zipCode;
     }
 
+    public ZonedDateTime getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(ZonedDateTime createDate) {
+        this.createDate = createDate;
+    }
+
+    public ZonedDateTime getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(ZonedDateTime updateDate) {
+        this.updateDate = updateDate;
+    }
 }
