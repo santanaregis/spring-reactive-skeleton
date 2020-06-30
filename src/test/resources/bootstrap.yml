@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      database: test
+      port: 0
+  application:
+    name: reactor-skeleton
